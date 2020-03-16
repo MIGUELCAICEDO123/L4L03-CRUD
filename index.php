@@ -1,3 +1,8 @@
+<?php
+    include("includes/db.php");
+    $sql="select * from persona";
+    $result=DB::query($sql);//--> mysqli_query($con,$query)
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,36 +12,34 @@
 </head>
 <body>
     <form>
-    
     <table border="1" cellspacing="0" cellpadding="3" >
-        <tr style="background-color: red">
+        <tr style="background-color: violet">
             <td>id</td>
             <td>nombre</td>
             <td>email</td>
+            <td>crud</td>
         </tr>
-        <tr>
+        <tr >
             <?php
-           
-            $con= new mysqli("localhost","root","","persona");
-            $query="select * from persona";
-            $insert = mysqli_query($con,$query);
-            while($impres=mysqli_fetch_array($insert)){
-                
+            while($mostrar=mysqli_fetch_array($result)){
             ?>
-             <td><?php  echo $impres['id']?></td>
-             <td><?php  echo $impres['nombre']?></td>
-             <td><?php  echo $impres['email']?></td>
-            </tr>
+            <td><?php echo $mostrar['id']?></td>
+            <td><?php echo $mostrar['nombre']?></td>
+            <td><?php echo $mostrar['email']?></td>
+            <td>
+            <a href="editar.php?id=<?= $mostrar["id"]; ?>">Editar</a>
+            <a href="eliminar.php?id=<?= $mostrar["id"]; ?>">Eliminar</a>
+            </td>
+        </tr>
             <?php 
             }
-            $con->close();
             ?>
     </table>
     </form>
     <form action="crear.php">
     <div>
         <br>
-        <button type="submit">AGREGAR</button>
+        <button type="submit">Agregar</button>
     </div>
     </form>
 </body>

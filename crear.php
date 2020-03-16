@@ -1,10 +1,9 @@
-hola desde crear
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Crear</title>
 </head>
 <body>
     <form action="guardar_persona.php" method="post">
@@ -12,20 +11,20 @@ hola desde crear
             <h3>Crear Usuario</h3>
         </div>
         <div class="form-group">
-            <label for="">Nombre</label><br>
+            <label for="">nombre</label><br>
             <input type="text" name="nombre">
         </div>
 
         <div class="form-group">
-            <label for="">Email</label><br>
+            <label for="">email</label><br>
             <input type="text" name="email">
         </div>
 
         <div>
-            <button type="submit">GUARDAR</button>
-           
+            <br>
+            <button type="submit">Guardar</button>
         </div>
     </form>
-    <form action="index.php"><button type="submit">INICIO</button></form>
+    <form action="index.php"><button type="submit">Incio</button></form>
 </body>
 </html>
